@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "toronto",
+        "title": "Capital of Ontario"
+    },
+    {
+        "id": "2",
+        "name": "Halifax",
+        "title": "Capital of Nova Scotia"
+    },
+    {
+        "id": "3",
+        "name": "Edmonton",
+        "title": "Capital of Alberta"
+    }
+]
