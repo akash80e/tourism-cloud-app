@@ -14,11 +14,10 @@ const firebaseConfig = {
 class Firebase {
   constructor() {
     app.initializeApp(firebaseConfig);
-
-    this.auth = app.auth();
+    this.auth = app.auth()
   }
 
-  createUser = (email, password, displayName) =>
+  createUser = (email, password, displayName ) =>
     this.auth.createUserWithEmailAndPassword(email, password)
     .then(function(result){
         return result.user.updateProfile({
@@ -33,6 +32,7 @@ class Firebase {
 
   signOut = () =>
     this.auth.signOut();
+
 }
 
 export default Firebase;

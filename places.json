@@ -1,0 +1,129 @@
+[{
+  "id" : 1,
+  "province": "Ontario",
+  "city": "Toronto",
+  "place"  : "Niagara Falls",
+  "desc": "Niagara Falls is Canada's most famous natural attraction, bringing in millions of visitors each year. Located just over an hour's drive from Toronto, along the American border, these massive falls drop approximately 57 meters. You can see the falls at an astoundingly close distance from several key points.",
+  "image_id" : ""
+},
+{
+  "id": 2,
+  "province": "Alberta",
+  "city" : "Calgary",
+  "place"  : "Banff National Park & the Rocky Mountains",
+  "desc"  : "Banff National Park lies in the heart of the majestic Rocky Mountains in the province of Alberta, and showcases some of Canada's most beautiful scenery. Turquoise-colored lakes, snow-capped peaks, and glaciers are all easily accessible in this stunning park.",
+  "image_id": ""
+},
+{
+  "id": 3,
+  "province": "Ontario",
+  "city" : "Toronto",
+  "place"  : "Toronto's CN Tower",
+  "desc"  : "On the shores of Lake Ontario in Canada's biggest city is the iconic CN Tower, one of Canada's most famous landmarks. The tower stands an impressive 553 meters high and dominates the skyline.",
+  "image_id": ""
+},
+{
+  "id": 4,
+  "province": "Quebec",
+  "city" : "Montreal",
+  "place"  : "Old Quebec (Vieux-Quebec)",
+  "desc"  : "Old Quebec is a UNESCO World Heritage Site and one of Canada's historic gems. Spread across the Upper and Lower Town of Quebec, this area contains the city's most historic buildings. The Lower Town, along the St. Lawrence River, is the site of the original settlement and home to the outstanding Fairmont Le Château Frontenac, as well as numerous other treasures. The Upper Town rests on 100-meter-high cliffs and is home to the Citadel, the Plains of Abraham, Place d'Armes, and the Parque Historique de l'Artillerie.",
+  "image_id": ""
+},
+{
+  "id": 5,
+  "province": "British Columbia",
+  "city" : "Whistler",
+  "place"  : "Whistler",
+  "desc"  : "Just a two-hour drive from Vancouver is the famous ski resort and village of Whistler. While Whistler has always been an important winter sports area, it has also developed into a popular summer destination, with golf, mountain biking, and a lively town atmosphere throughout the year.",
+  "image_id": ""
+},
+{
+  "id": 6,
+  "province": "Ontario",
+  "city" : "Ottawa",
+  "place"  : "Ottawa's Parliament Hill",
+  "desc"  : "Ottawa's Parliament Hill stands high above the Ottawa River and is graced by the Neo-Gothic-style Parliament buildings built in the last half of the 19th century. The most prominent feature is the Peace Tower, which divides the House of Commons and the Senate on either side. In front of the Parliament buildings is the Centennial Flame, lit in 1966 to commemorate the centenary of the Canadian Confederation, and behind the buildings is a sculpture garden.",
+  "image_id": ""
+},
+{
+  "id": 7,
+  "province": "Newfoundland and Labrador",
+  "city" : "St. John's",
+  "place"  : "St. John's Signal Hill National Historic Site",
+  "desc"  : "At the entrance to St. John's harbor, overlooking the city and sea, is Signal Hill National Historic Site. It was here, in 1901, that the first wireless transatlantic signal was received. It also played a strategic role in the Seven Years war with France, although the current fortifications were built during the hostilities of 1812.",
+  "image_id": ""
+},
+{
+  "id":8,
+  "province": "Quebec",
+  "city" :"Montreal",
+  "place":"Old Montreal",
+  "desc":"Old Montreal, lined with lovely historic buildings, is a place to go for great shopping and fine dining. While Montreal itself is a vibrant modern city, Old Montreal, down by the waterfront, is where most tourists come to soak up the atmosphere. Some of the must-see places in Old Montreal include Rue Bonsecours and the landmark Marché Bonsecours in the old town hall building, the interior of the beautiful Notre-Dame Basilica, the lively Place Jacques-Cartier, and the 1870s City Hall.",
+  "image_id": ""
+},
+{
+  "id":9,
+  "province":"Manitoba",
+  "city" :"Churchill",
+  "place":". Polar Bears of Churchill",
+  "desc":"One of Canada's most unique attractions is the polar bear migration that sees these beautiful creatures make their way from land out onto the ice in Hudson Bay, near the town of Churchill in Northern Manitoba.",
+  "image_id": ""
+},
+{
+  "id":10,
+  "province":"British Columbia",
+  "city" :"Vancouver",
+  "place":". Vancouver Island",
+  "desc":"Although it is less than a two-hour ferry ride from the mainland, Vancouver Island can seem a world away. Most people head to Victoria, BC's capital city, for sightseeing and culture, but if you head north into the wild and remote landscapes, the island holds some unexpected and unforgettable experiences. Nature lovers can hit the best hiking trails on Vancouver Island and set themselves up at some beautiful camping locations. Those looking for more comfort can always turn to one of the island's lodges or resorts.",
+  "image_id": ""
+},
+{
+  "id":11,
+  "province":"New Brunswick",
+  "city" :"Saint John",
+  "place":"Bay of Fundy",
+  "desc":"The Bay of Fundy, located in Eastern Canada in between New Brunswick and Nova Scotia, is known for its amazing tides. The variation between high and low is the largest in the world, measuring up to a maximum of 19 meters (10 fathoms). While there are many ways to appreciate this natural wonder, some of the most popular locations and sights along the Bay of Fundy are the cliffs and rock formations at Hopewell Cape, Fundy National Park, the Fundy Trail Parkway, and Grand Manan Island.",
+  "image_id": ""
+},
+{
+  "id":12,
+  "province":"Vancouver",
+  "city" :"Victoria",
+  "place":"Victoria's Inner Harbour",
+  "desc":"Few Canadian cities have done such a beautiful job of developing their waterfront area as Victoria and its Inner Harbour. This is a great place for strolling, relaxing, shopping, dining, and watching street performers all against the backdrop of the harbor.",
+  "image_id": ""
+},
+{
+  "id":13,
+  "province":"Newfoundland & Labrador",
+  "city" :"Howley",
+  "place":"Gros Morne National Park",
+  "desc":"Newfoundland's Gros Morne National Park is more remote than many of Canada's most popular national parks, but worth the effort to discover this beautiful landscape of mountains and fjords. The park is a UNESCO World Heritage Site featuring steep cliff walls, waterfalls, and interesting rock formations carved by the glacier-fed waters.",
+  "image_id": ""
+},
+{
+  "id":14,
+  "province":"British Columbia",
+  "city" :"Vancouver",
+  "place":"Vancouver's Stanley Park",
+  "desc":"One of Vancouver's greatest treasures is the 405-hectare Stanley Park, conveniently located on the west side of the downtown area. Situated on a peninsula, the park is surrounded by the ocean and home to huge red cedar and Douglas fir trees. The seawall, which rings the park, has an extensive walking, jogging, and biking path with designated lanes for walkers and bikers. From the seawall are some lovely views of the city and mountains. A scenic drive also winds through Stanley Park with numerous pullouts.",
+  "image_id": ""
+},
+{
+  "id":15,
+  "province":"Alberta",
+  "city" :"Calgary",
+  "place":"Calgary Stampede",
+  "desc":"This 10-day affair is one of the most widely anticipated events in Western Canada, with many locals and summertime travelers planning their holidays around the Calgary Stampede. For this week in July, the city of Calgary turns into a true western town, where people who might otherwise be wearing suits to work instead don jeans and cowboy boots.",
+  "image_id": ""
+},
+{
+  "id":16,
+  "province":"Manitoba",
+  "city" :"Winnipeg",
+  "place":"Canadian Museum for Human Rights",
+  "desc":"TWinnipeg's newest major attraction, which has drawn both national and international attention, is the Canadian Museum for Human Rights. Opening in 2014 near The Forks, the building displays a unique design that is eye-catching to say the least, with geometry and colors based on images of the Canadian landscape.",
+  "image_id": ""
+}
+]

@@ -42,7 +42,6 @@ const NavigationNonAuth = () => (
   <div>
   <Navbar bg="dark" variant="dark">
     <Navbar.Brand href={ROUTES.HOME}>Tourism</Navbar.Brand>
-
   </Navbar>
   </div>
 );

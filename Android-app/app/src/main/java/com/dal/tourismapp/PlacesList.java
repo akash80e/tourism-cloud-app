@@ -27,9 +27,11 @@ public class PlacesList extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private ArrayList<String> titles;
-    private ArrayList<String> other_info;
-    private ArrayList<String> desc;
+    private ArrayList<String> place;
+    private ArrayList<String> city;
+    private ArrayList<String> image_id;
+    private ArrayList<String> province;
+    private ArrayList<String> id;
     private JSONArray placesArray;
 
     @Override
@@ -44,9 +46,11 @@ public class PlacesList extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recycle_view.setLayoutManager(layoutManager);
 
-        titles = new ArrayList<>();
-        desc = new ArrayList<>();
-        other_info = new ArrayList<>();
+        place = new ArrayList<>();
+        city = new ArrayList<>();
+        image_id = new ArrayList<>();
+        province = new ArrayList<>();
+        id = new ArrayList<>();
         placesArray = new JSONArray();
         final String keyword = getIntent().getStringExtra("keyword");
         //create a thread for fetching jokes
@@ -62,50 +66,33 @@ public class PlacesList extends AppCompatActivity {
         thread.start();
 
 
-        /*titles.add("Halifax");
-        titles.add("Toronto");
-        titles.add("Edmonton");
-
-        desc.add("Capital of Nova Scotia");
-        desc.add("Capital of Ontario");
-        desc.add("Capital of Alberta");
-
-        other_info.add("asdasd");
-        other_info.add("asdasd");
-        other_info.add("asdasd");*/
-
-        mAdapter = new PlacesAdapter(titles, desc, other_info);
+        mAdapter = new PlacesAdapter(place, city, image_id, province, id, getApplicationContext());
         recycle_view.setAdapter(mAdapter);
-
     }
     public void getPlaces(String keyword) {
         System.out.println("Akash 2");
-         String url = "http://ec2-54-237-248-225.compute-1.amazonaws.com:5000/" + keyword;
+         String url = "http://ec2-54-87-180-69.compute-1.amazonaws.com:5000/" + keyword;
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
-
-
                     @Override
                     public void onResponse(JSONArray response) {
 
                         try {
-                            System.out.println("Akash");
                             System.out.println(response);
 
                                 //adding jokes from response to an arrayList
                                 for(int i=0;i<response.length();i++){
                                     JSONObject placeObject = (JSONObject) response.get(i);
-                                    titles.add(placeObject.getString("title"));
-                                    desc.add(placeObject.getString("name"));
-                                    other_info.add(placeObject.getString("id"));
-
+                                    place.add(placeObject.getString("place"));
+                                    city.add(placeObject.getString("city"));
+                                    image_id.add(placeObject.getString("image_id"));
+                                    province.add(placeObject.getString("province"));
+                                    id.add(placeObject.getString("id"));
                                 }
                                 //notify to refresh the view related to the dataSet
                                 mAdapter.notifyDataSetChanged();
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

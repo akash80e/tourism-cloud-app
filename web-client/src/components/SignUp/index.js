@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {Form, Button, Col, Row, Container} from 'react-bootstrap'
+import {Form, Button, Col, Row, Container, InputGroup, FormControl} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {compose} from 'recompose'
+import IntlTelInput from 'react-bootstrap-intl-tel-input'
 
 import { withFirebase} from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -29,7 +30,6 @@ const INITIAL_STATE = {
   error: null,
 };
 
-
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +48,6 @@ class SignUpFormBase extends Component {
       .catch(error => {
         this.setState({error});
       });
-
       event.preventDefault();
   };
 
@@ -106,6 +105,12 @@ class SignUpFormBase extends Component {
             type="password"
             placeholder="Confirm Password"
           />
+          <Form.Label className="mx-auto my-2">Mobile Number</Form.Label>
+            <IntlTelInput
+            preferredCountries={['US', 'CA']}
+            defaultCountry={'US'}
+            defaultValue={'+1'}
+            />
           <Button className="mx-auto my-3" disabled={isInvalid} type="submit">Sign Up</Button>
           {error && <p>{error.message}</p>}
 

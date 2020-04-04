@@ -106,9 +106,12 @@ class SignInFormBase extends Component {
           placeholder="Password"
         />
         <Button className="mx-auto my-3" disabled={isInvalid} type="submit">Sign In</Button>
-        
         {error && <p>{error.message}</p>}
+        <p>OR</p>
+        <Button className="mx-auto" onClick={this.googleSignIn}>Sign In with Google</Button>
         </Form>
+
+
 
     )
   }
