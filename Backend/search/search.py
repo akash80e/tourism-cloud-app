@@ -26,7 +26,8 @@ def getPlace(keyword):
     return dumps(places, indent = 4)
 
 @app.route('/getById/<id>', methods=['GET'])
-def getPlace(id):
+def getPlaceById(id):
+
     place = col.find({"id" : id})
     return dumps(place, indent = 4)
 
