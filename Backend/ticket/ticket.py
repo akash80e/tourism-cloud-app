@@ -30,21 +30,7 @@ def ticket_creation():
     total = int(passenger_number) * int(ticket_price)
     print(email, destination_name, city, province, date_booked,
           date_travel, ticket_price, passenger_number)
-    """
-    email = str(request.args.get('email'))
-    destination_name = str(request.args.get('destination_name')).capitalize()
-    city = str(request.args.get('city')).capitalize()
-    province = str(request.args.get('province')).upper()
-    date_booked = str(datetime.datetime.now())
-    date_travel = str(request.args.get('date_travel'))
-    ticket_price = str(request.args.get('ticket_price'))
-    passenger_number = str(request.args.get('passenger_number'))
-    print(email, destination_name, city, province, date_booked,
-          date_travel, ticket_price, passenger_number)
-    total = int(passenger_number) * int(ticket_price)
-    source = str(request.args.get('source')).capitalize()
-    busid = str(request.args.get('busid'))
-    """
+
     while True:
         # Connect to database
         conn = pymysql.connect(host='tourismdb.cefqm5hgun7y.us-east-1.rds.amazonaws.com', port=3306,
@@ -54,20 +40,15 @@ def ticket_creation():
             try:
                 cursor = conn.cursor()
                 # data access
-                select_query = 'SELECT Userid FROM Userdata WHERE Email = %s'
-                cursor.execute(select_query, (email))
-                #userid = cursor.fetchone()['Userid']
-                userid = 1
 
                 # Insert User data into table on registration
-                insert_query = 'INSERT INTO Ticketdetail (Userid,Destination_name,\
+                insert_query = 'INSERT INTO Ticketdetail (Email,Destination_name,\
                     City,Province,Date_booked,Date_travel,Ticket_price,Passenger_number,Total, Source, Busid) \
                                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
 
                 cursor.execute(insert_query, (email, destination_name,
                                               city, province, date_booked, date_travel, str(ticket_price), str(passenger_number), str(total), source, busid))
                 conn.commit()
-
             finally:
                 conn.close()
             break
@@ -77,7 +58,7 @@ def ticket_creation():
     return jsonify({'Result': 'Data Inserted'})
 
 
-@app.route('/gettickets')
+@app.route('/gettickets', methods=['GET'])
 def get_tickets():
 
     email = str(request.args.get('email'))
@@ -91,18 +72,11 @@ def get_tickets():
 
             try:
                 cursor = conn.cursor()
-                # data access
-                #select_query = 'SELECT Userid FROM Userdata WHERE Email = %s'
-                #cursor.execute(select_query, (email))
-                #userid = cursor.fetchone()['Userid']
-
-                # Insert User data into table on registration
-                select_all_data = 'SELECT * from Ticketdetail WHERE Userid = %s'
+                select_all_data = 'SELECT * from Ticketdetail WHERE Email = %s'
 
                 cursor.execute(select_all_data, (str(email)))
                 conn.commit()
                 result = cursor.fetchall()
-
             finally:
                 conn.close()
             break

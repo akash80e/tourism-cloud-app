@@ -1,16 +1,20 @@
 import React,{Component}  from 'react';
 import { withAuthorization} from '../Session';
-import {Form, Button, Container, Table, Card, FormGroup, InputGroup, FormControl, Modal} from 'react-bootstrap';
+import {Form, Button, Container, Table, Card, FormGroup, InputGroup, FormControl, Modal, Jumbotron} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as ROUTES from '../../constants/routes';
 import CreditCardInput from 'react-credit-card-input';
 import {AuthUserContext} from '../Session';
 import DateInput from "date-input";
+import { useHistory } from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {compose} from 'recompose'
+import { withFirebase} from '../Firebase';
 
 const HomePage = () => (
     <div>
     <AuthUserContext.Consumer>
-    {authUser => <HomePageBase value= {authUser.email}/>}
+    {authUser => <Home value= {authUser.email}/>}
     </AuthUserContext.Consumer>
     </div>
 );
@@ -31,11 +35,12 @@ class HomePageBase extends Component {
      let temp = event.target;
      let keyword = temp.form.elements.keyword_book.value;
      let list = [];
-     var url = 'http://ec2-54-87-180-69.compute-1.amazonaws.com:5000/' + keyword
+     var url = 'http://3.215.128.213:5000/' + keyword
      fetch(url).then(response => response.json().then(data => {
          for(var i = 0; i < data.length; i++) {
             var obj = data[i];
             list.push(data[i]);
+            console.log(obj)
     }
     this.setState({
       listofPlaces: list
@@ -45,7 +50,7 @@ class HomePageBase extends Component {
 
     redirect = (id) => {
 
-        var url = 'http://ec2-54-87-180-69.compute-1.amazonaws.com:5000/getById/' + id
+        var url = 'http://3.215.128.213:5000/getById/' + id
         fetch(url).then(response => response.json().then(data => {
             var obj;
             for(var i = 0; i < data.length; i++) {
@@ -79,14 +84,8 @@ class HomePageBase extends Component {
     }
 
     confirmBooking = (event) => {
-
-        console.log(this.state.source)
-        console.log(this.state.numberOfPeople)
-        console.log(this.state.Date)
-        console.log(this.state.selectedCard)
-        console.log(this.props.value)
         const response =
-        fetch('http://127.0.0.1:5001/ticketcreation' , {
+        fetch('http://3.215.128.213:5001/ticketcreation' , {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -96,12 +95,20 @@ class HomePageBase extends Component {
                 destination_name: this.state.selectedCard.place,
                 city: this.state.selectedCard.city,
                 province: this.state.selectedCard.province,
-                ticket_price: 10,
+                ticket_price: this.state.selectedCard.cost,
                 passenger_number: this.state.numberOfPeople,
                 busid: 13
             }),
-        })
+        }).then(() => this.props.history.push(ROUTES.BOOKING));
+        event.preventDefault();
+
     }
+    close = (event => {
+        this.setState({
+            details:true,
+            booking: false
+        })
+    })
 
     handleSourceChange = (event) => {
         this.setState({
@@ -136,11 +143,18 @@ class HomePageBase extends Component {
             <div>
             <div style={search}>
                 <Container>
-                    <h1>Home Page</h1>
+                    <Jumbotron >
+                        <Container>
+                        <h1>Explore Destination</h1>
+                        <p>
+                        You can search for a destination below
+                        </p>
+                        </Container>
+                    </Jumbotron>
                         <Form >
                             <Form.Group controlId="exampleForm.ControlInput1">
-                                <Form.Label>Enter a tourist spot</Form.Label>
-                                <Form.Control name="keyword_book" placeholder="e.g. Toronto" />
+
+                                <Form.Control name="keyword_book" placeholder="Search for province, city, place" />
                             </Form.Group>
                             <Button variant="primary" onClick={this.search}>Search</Button>
                         </Form>
@@ -171,6 +185,9 @@ class HomePageBase extends Component {
                         <Card.Subtitle className="mb-2 text-muted">{this.state.selectedCard.city}</Card.Subtitle>
                         <Card.Text>
                         {this.state.selectedCard.desc}
+                        </Card.Text>
+                        <Card.Text>
+                        Price: ${this.state.selectedCard.cost}
                         </Card.Text>
                         <Button variant="primary" onClick={() => this.booking()}>Book</Button>
                         <Button className='ml-4' variant="primary" onClick={() => this.goBack()}>Go Back</Button>
@@ -207,11 +224,10 @@ class HomePageBase extends Component {
                         />
                         </Form.Group>
                     </Form>
-
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary">Close</Button>
-                <Button onClick={this.confirmBooking}variant="primary">Confirm Booking</Button>
+                <Button variant="secondary" onClick={this.close}>Close</Button>
+                <Button onClick={this.confirmBooking} variant="primary">Confirm Booking</Button>
                 </Modal.Footer>
                 </Modal.Dialog>
 
@@ -221,6 +237,11 @@ class HomePageBase extends Component {
         )
     }
 }
+const Home = compose (
+  withRouter,
+  withFirebase,
+)(HomePageBase);
+
 const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(HomePage);

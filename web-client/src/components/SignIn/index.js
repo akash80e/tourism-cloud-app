@@ -11,10 +11,12 @@ import { SignUpLink} from '../SignUp'
 
 const SignInPage = () => (
   <Container>
-  <h1>SignIn</h1>
+  <center>
+  <h1 >SIGN IN</h1>
+  </center>
     <Row>
     <Col>
-      <img src="https://www.kindpng.com/picc/m/19-190566_tourism-icon-tourism-hd-png-download.png" height='200' width='200' />
+      <Image src="https://cdn.clipart.email/67eb7275954071dc550f09f7a1644779_tour-travel-png-vectors-tours-and-travels-png-free-transparent-_900-834.png" height='300' width='400' />
     </Col>
     <Col>
       <SignInForm />

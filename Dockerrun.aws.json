@@ -4,7 +4,7 @@
         {
             "name": "search",
             "essential": true,
-            "image": "akash80e/tourist_app:search_api",
+            "image": "akash80e/back_up:search_api",
             "name": "search",
             "memory": 300,
             "portMappings": [
@@ -17,7 +17,7 @@
         {
             "name": "ticket",
             "essential": true,
-            "image": "akash80e/tourist_app:ticket_api",
+            "image": "akash80e/back_up:ticket_api",
             "mountPoints": [
                 {
                     "containerPath": "/app",
@@ -36,7 +36,7 @@
         {
             "name": "webclient",
             "essential": true,
-            "image": "akash80e/tourist_app:webclient",
+            "image": "akash80e/back_up:webclient",
             "mountPoints": [
                 {
                     "containerPath": "/app",

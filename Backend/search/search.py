@@ -10,7 +10,7 @@ import re
 app = Flask(__name__)
 CORS(app)
 ## Create a MongoDB client, open a connection to Amazon DocumentDB as a replica set and specify the read preference as secondary preferred
-mongo = pymongo.MongoClient('mongodb://group1220:group1220@docdb-2020-04-01-20-24-26.cluster-c5lzghyl4fiq.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
+mongo = pymongo.MongoClient('mongodb://group1220:group1220@docdb-2020-04-05-23-50-44.cluster-c1fknw6gmcpf.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
 
 db = mongo.tourist
 
@@ -28,8 +28,8 @@ def getPlace(keyword):
 @app.route('/getById/<id>', methods=['GET'])
 def getPlaceById(id):
 
-    place = col.find({"id" : id})
+    place = col.find({"id" : int(id)})
     return dumps(place, indent = 4)
 
 if __name__ == '__main__':
-    app.run( debug = True)
+    app.run(host="0.0.0.0", debug = True)

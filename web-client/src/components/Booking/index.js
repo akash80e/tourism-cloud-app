@@ -30,7 +30,7 @@ class Booking extends Component {
         let email = this.props.value
         let list = []
         //var url = 'http://ec2-54-87-180-69.compute-1.amazonaws.com:5000/get_tickets?email=' + email
-        let url = "http://127.0.0.1:5001/gettickets?email=" + email
+        let url = "http://3.215.128.213:5001/gettickets?email=" + email
         fetch(url).then(response => response.json().then(data => {
             var obj;
             for(var i = 0; i < data.Result.length; i++) {
@@ -51,12 +51,22 @@ class Booking extends Component {
                 <h1> Bookings </h1>
                 {this.state.bookings.map((item,idx) => (
                 <Card>
-                    <Card.Header>{item.Destination_name}</Card.Header>
+                    <Card.Header><b>{item.Destination_name.toUpperCase()}</b></Card.Header>
                     <Card.Body>
-                        <Card.Title>{item.City}</Card.Title>
+                        <Card.Title><b>{item.City}</b></Card.Title>
                         <Card.Text>
-                        <p>{item.Destination_name}</p>
-                        <p>{item.Passenger_number}</p>
+
+                        <b>Ticket ID:</b> {item.Ticketid}
+                        <br/>
+                        <b>Ticket Price:</b> ${item.Total}
+                        <br/>
+                        <b>No. of Travellers:</b> {item.Passenger_number}
+                        <br/>
+                        <b>Source:</b> {item.Source}
+                        <br/>
+                        <b> Date of Travel: </b> {item.Date_travel}
+                        <br/>
+                        <b> Date of Booking: </b> {item.Date_booked}
                         </Card.Text>
                     </Card.Body>
                 </Card>
